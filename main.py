@@ -3,7 +3,7 @@ from datetime import date as dt
 from openpyxl import load_workbook
 from datetime import datetime
 
-wb = load_workbook('dados.xlsx') #Carregar arquivo excell
+wb = load_workbook('dados.xlsx') #Carregar arquivo excell TROQUE PELO NOME DO ARQUIVO QUE VOCE VAI ABRIR
 ws = wb.active #Ativar o excell
 linha = ws.max_row #Ler o maximo de linhas
 
@@ -37,6 +37,6 @@ while True: #Estrutura repeticao
     ws.cell(row=linha, column=4).value = pagamento
     ws.cell(row=linha,  column=5).value = observacoes
     ws.cell(row=linha, column=6).value = hora_atual
-    wb.save('dados.xlsx')
+    wb.save('dados.xlsx') # BOTE O NOME QUE DESEJA SALVAR
 
 print("Obrigado por usar!")
