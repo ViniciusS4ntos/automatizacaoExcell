@@ -21,6 +21,10 @@ Pré-requisitos Técnicos:
 
 Ambiente Office:
 
+Instalar as seguintes blibiotecas:
+  datetime
+  openpyxl
+
 Necessária a instalação do Microsoft Excel com licença ativa
 
 Versão compatível: 2016 ou superior
