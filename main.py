@@ -2,6 +2,8 @@
 from datetime import date as dt
 from openpyxl import load_workbook
 from datetime import datetime
+import time as t
+import subprocess
 
 wb = load_workbook('dados.xlsx') #Carregar arquivo excell TROQUE PELO NOME DO ARQUIVO QUE VOCE VAI ABRIR
 ws = wb.active #Ativar o excell
@@ -29,9 +31,10 @@ while True: #Estrutura repeticao
     while all(cell.value is None for cell in ws[linha]):linha-=1
     linha+=1
 
-    hoje = dt.today()
+    hoje1 = dt.today()
+    dataHoje = hoje1.strftime("%d/%m/%Y")
 
-    ws.cell(row=linha, column=1).value = hoje
+    ws.cell(row=linha, column=1).value = dataHoje
     ws.cell(row=linha, column=2).value = servico
     ws.cell(row=linha, column=3).value = valor
     ws.cell(row=linha, column=4).value = pagamento
@@ -39,4 +42,6 @@ while True: #Estrutura repeticao
     ws.cell(row=linha, column=6).value = hora_atual
     wb.save('dados.xlsx') # BOTE O NOME QUE DESEJA SALVAR
 
-print("Obrigado por usar!")
+print("\nObrigado por usar!\n")
+t.sleep(1)
+subprocess.run(["python", "backup.py"])
