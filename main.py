@@ -3,7 +3,7 @@ from datetime import date as dt
 from openpyxl import load_workbook
 from datetime import datetime
 import time as t
-import subprocess
+import shutil
 
 wb = load_workbook('dados.xlsx') #Carregar arquivo excell TROQUE PELO NOME DO ARQUIVO QUE VOCE VAI ABRIR
 ws = wb.active #Ativar o excell
@@ -44,4 +44,8 @@ while True: #Estrutura repeticao
 
 print("\nObrigado por usar!\n")
 t.sleep(1)
-subprocess.run(["python", "backup.py"])
+
+from salvar import Backup
+Backup()
+
+
